@@ -1,0 +1,6 @@
+/backend
+/playground
+db.sqlite3
+manage.py
+Pipfile
+Pipfile.lock

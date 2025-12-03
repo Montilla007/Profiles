@@ -1,4 +1,3 @@
-
 /*not used here, experimented only
 .project-bg {
     padding: 96px 0;
@@ -26,16 +25,16 @@
 }
 
  */
- 
- *{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
- }
+}
 
 
-.bg{
-  
+.bg {
+
     background-color: #2D3748;
 }
 
@@ -46,5 +45,24 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place it behind your other content */
-  }
+    z-index: -1;
+    /* Place it behind your other content */
+}
+
+.tech-icon {
+    width: 50px; /* keeps your current size */
+    height: 50px; /* ensures perfect size stability */
+    padding: 8px;
+
+    background-color: rgba(255, 255, 255, 0.05); /* subtle light fill */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* gentle border */
+    border-radius: 10px; /* rounded square */
+
+    transition: 0.3s ease;
+}
+
+.tech-icon:hover {
+    background-color: rgba(16, 185, 129, 0.1); /* green tint hover */
+    border-color: #10B981; /* Tailwind green-500 */
+    transform: scale(1.05);
+}
