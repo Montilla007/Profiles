@@ -261,7 +261,17 @@
             const template = document.getElementById("project-card-template");
 
             try {
-                const response = await fetch("http://localhost:3000/repos");
+                let response;
+
+                try {
+                    // Try localhost first
+                    response = await fetch("http://localhost:5000/api/repos");
+                    if (!response.ok) throw new Error("Localhost fetch failed");
+                } catch (err) {
+                    // Fallback to deployed URL if local fails
+                    response = await fetch("https://profiles-api.vercel.app/api/repos");
+                }
+
                 const repos = await response.json();
 
                 repos.forEach(repo => {

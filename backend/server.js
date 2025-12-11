@@ -1,6 +1,6 @@
-const express = require("express");
-const cors = require("cors");
-const repo = require("gh-repo-reader");
+import cors from "cors";
+import express from "express";
+import repo from "gh-repo-reader";
 
 const app = express();
 app.use(cors());
@@ -8,26 +8,32 @@ app.use(cors());
 const GITHUB_USER = "Montilla007";
 
 // GET all repositories
-app.get("/repos", async (req, res) => {
+app.get("/api/repos", async (req, res) => {
   try {
-    const client = await repo.fetch(GITHUB_USER);
-    const repos = client;
+    const repos = await repo.fetch(GITHUB_USER);
 
     const sorted = repo.sortByLatest(repos);
     const summarized = repo.summarize(sorted);
-    res.json(summarized);
+
+    res.status(200).json(summarized);
   } catch (err) {
-    res
-      .status(500)
-      .json({ error: "Failed to fetch repositories", message: err.message });
+    res.status(500).json({
+      error: "Failed to fetch repositories",
+      message: err.message,
+    });
   }
 });
 
+// Root route
 app.get("/", (_req, res) => {
   res.json({
     status: "OK",
-    message: `Trailblazer Backend Running in ${process.env.NODE_ENV} mode 🚀`,
+    message: `Profile Backend Running in ${PORT || "development"} mode 🚀`,
   });
 });
 
-app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+// Use PORT environment variable or default 5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () =>
+  console.log(`✅ Server running on http://localhost:${PORT}`)
+);
