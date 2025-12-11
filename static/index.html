@@ -119,8 +119,8 @@
 
             <div class="md:w-1/2 p-4 text-center">
                 <div class="mb-6 py-4">
-                    <a href="https://docs.google.com/document/d/19SxyxzF4l14NOsT-3PjP979C22vzjWvyp8EhKULepb0/view?usp=sharing" target="_blank" download
-                        class="bg-gray-900 text-white py-2 px-4 hover:bg-green-500">
+                    <a href="https://docs.google.com/document/d/19SxyxzF4l14NOsT-3PjP979C22vzjWvyp8EhKULepb0/view?usp=sharing"
+                        target="_blank" download class="bg-gray-900 text-white py-2 px-4 hover:bg-green-500">
                         <i class="fa-sharp fa-solid fa-down-long px-2"></i>Download Resume
                     </a>
                 </div>
@@ -212,144 +212,88 @@
 
             <h2 class="text-2xl text-center text-gray-100 font-bold mb-8">Featured Projects</h2>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Template for Dynamic Project Card -->
+            <template id="project-card-template">
+                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition flex flex-col">
 
-                <!-- AccessAbility -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/accessability.png" alt="AccessAbility project image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">AccessAbility</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            A GPS-based navigation app designed to assist persons with disabilities.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: Flutter · Firebase · GitHub Actions · Vercel</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/AccessAbility" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
+                    <!-- Placeholder Image -->
+                    <div
+                        class="project-image w-full h-44 bg-gray-300 flex items-center justify-center text-gray-700 text-sm">
+                        No Image Available
+                    </div>
+
+                    <div class="p-4 flex flex-col flex-grow">
+
+                        <h3 class="project-title text-xl font-semibold text-gray-800 mb-2"></h3>
+
+                        <!-- Scrollable description -->
+                        <div class="project-description text-gray-600 text-sm mb-4 overflow-y-auto max-h-20 pr-1"></div>
+
+                        <p class="project-tech text-gray-700 text-sm mb-2"></p>
+
+                        <p class="project-updated text-gray-600 text-xs mb-4"></p>
+
+                        <!-- Footer -->
+                        <div class="mt-auto flex justify-between items-center">
+                            <a class="project-source text-gray-800 flex items-center gap-2 hover:text-green-500"
+                                target="_blank">
                                 <i class="fab fa-github text-3xl"></i> Source
                             </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
+                            <a class="project-live bg-gray-900 p-2 text-white hover:bg-green-500" target="_blank">
                                 Live View
                             </a>
                         </div>
+
                     </div>
                 </div>
+            </template>
 
-                <!-- Cryptotel -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/cryptotel.png" alt="Cryptotel project image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Cryptotel</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            A hotel & restaurant booking system with cryptocurrency transaction support.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: Flutter · Node.js · MongoDB · Vercel</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/Cryptotel" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
-                                <i class="fab fa-github text-3xl"></i> Source
-                            </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
-                                Live View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- InsureChain -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/insurechain.png" alt="InsureChain project image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">InsureChain</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            A decentralized insurance platform where users earn tokens for completing challenges.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: React · ICP · Typescript · Azle</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/InsureChain" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
-                                <i class="fab fa-github text-3xl"></i> Source
-                            </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
-                                Live View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AppointCare -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/appointcare.png" alt="AppointCare project image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">AppointCare</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            A doctor–patient appointment system for web and mobile.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: React · Node.js · MongoDB · Kotlin</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/AppointCare" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
-                                <i class="fab fa-github text-3xl"></i> Source
-                            </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
-                                Live View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Study With Me -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/studywithme.png" alt="Study With Me project image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Study With Me</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            A learning and quiz application with notes, lessons, and a to-do list.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: Kotlin · SQLite</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/StudyWithMe" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
-                                <i class="fab fa-github text-3xl"></i> Source
-                            </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
-                                Live View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- After Earth -->
-                <div class="bg-gray-100 mx-4 rounded-lg shadow-md hover:scale-105 transition">
-                    <img src="assets/projects/afterearth.png" alt="After Earth game image"
-                        class="w-full h-44 object-cover" />
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">After Earth</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            An isometric ruined-world adventure game focused on time-machine repair quests.
-                        </p>
-                        <p class="text-gray-700 text-sm mb-4">Tech: Unity · Blender</p>
-                        <div class="flex justify-between items-center">
-                            <a href="https://github.com/YOUR_GITHUB/AfterEarth" target="_blank"
-                                class="text-gray-800 flex items-center gap-2 hover:text-green-500">
-                                <i class="fab fa-github text-3xl"></i> Source
-                            </a>
-                            <a href="#" target="_blank" class="bg-gray-900 p-2 text-white hover:bg-green-500">
-                                Live View
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <!-- Dynamic Projects Grid -->
+            <div id="dynamic-projects" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8"></div>
 
         </div>
     </section>
+
+
+    <script>
+        async function loadRepos() {
+            const container = document.getElementById("dynamic-projects");
+            const template = document.getElementById("project-card-template");
+
+            try {
+                const response = await fetch("http://localhost:3000/repos");
+                const repos = await response.json();
+
+                repos.forEach(repo => {
+                    const card = template.content.cloneNode(true);
+
+                    const updatedDate = new Date(repo.lastUpdated).toLocaleDateString();
+
+                    card.querySelector(".project-title").textContent = repo.name;
+                    card.querySelector(".project-description").textContent =
+                        repo.description || "No description available.";
+                    card.querySelector(".project-tech").textContent =
+                        `Tech: ${repo.language || "Unknown"}`;
+                    card.querySelector(".project-updated").textContent =
+                        `Last Updated: ${updatedDate}`;
+
+                    // Optional if you add a repo URL in backend later:
+                    card.querySelector(".project-source").href = "#";
+
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Failed to load repositories:", error);
+                container.innerHTML = `<p class="text-gray-400 text-center">Failed to load projects.</p>`;
+            }
+        }
+
+        loadRepos();
+    </script>
+
+
+
 
     <!-- Certificates Section -->
     <section id="certificates" class="py-16">
